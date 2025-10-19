@@ -1,15 +1,5 @@
 import * as net from "net";
 
-type TCPConn = {
-  // the JS socket object
-  socket: net.Socket;
-  // the callbacks of the promise of the current read
-  reader: null | {
-    resolve: (value: Buffer) => void;
-    reject: (reason: Error) => void;
-  };
-};
-
 function newConn(socket: net.Socket): void {
   console.log("new connection", socket.remoteAddress, socket.remotePort);
 
